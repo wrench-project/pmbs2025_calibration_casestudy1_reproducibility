@@ -1,0 +1,15 @@
+.DS_Store
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+cmake_install.cmake
+build
+cmake-build-debug
+install_manifest.txt
+.idea
+*.pyc
+*.pdf
+*.pickled
+*.png
+calibration/tmp.json
