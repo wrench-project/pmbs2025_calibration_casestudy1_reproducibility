@@ -54,5 +54,5 @@ ENV CXX="g++" CC="gcc"
 RUN git clone  https://github.com/wrench-project/pmbs2025_calibration_casestudy1_reproducibility && cd pmbs2025_calibration_casestudy1_reproducibility/simulator && mkdir build && cd build && cmake .. && make  -j2 && sudo make install && sudo ldconfig && cd ../..
 
 # Install Simcal
-RUN git clone https://github.com/wrench-project/simcal.git && cd simcal && git pull && sudo pip install -r requirements.txt --break-system-packages && sudo pip install . --break-system-packages &&  cd ..
+RUN git clone https://github.com/wrench-project/simcal.git && cd simcal && git pull && git checkout 86445d59177922fa3711473bbf4e5e207005fcc2 && sudo pip install -r requirements.txt --break-system-packages && sudo pip install . --break-system-packages &&  cd ..
 
