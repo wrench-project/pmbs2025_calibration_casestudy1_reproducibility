@@ -1,11 +1,13 @@
+---
+
 ## About
 
 This repository contains the software used for Case Study #1 in [https://doi.org/10.1145/3731599.3767698](https://doi.org/10.1145/3731599.3767698), with the objective of making the experiments and results in that case study reproducible.
 
 The software is comprised of two parts:
 
-  - 1. The simulator in the `simulator/` directory; and
-  - 2. The simulator calibration scripts in the `calibration/` directory.
+  - The simulator in the `simulator/` directory; and
+  - The simulator calibration scripts in the `calibration/` directory.
 
 The `install.sh` script in the root directory will build and install all needed software, including:
 [SimGrid 4.0](https://framagit.org/simgrid/simgrid/),
