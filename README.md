@@ -17,7 +17,7 @@ the simulation calibration framework
 `sudo`, `cmake`, `make`, `gcc`, `git`, Boost 1.81 or above, and Python 3.12 (and corresponding
 pip) are already installed.
 
-The experiments in the case study are conducted with the ground-truth data available [there](https://doi.org/10.6084/m9.figshare.30132955).
+The experiments in the case study are conducted with the ground-truth data available on [figshare](https://doi.org/10.6084/m9.figshare.30132955).
 
 ---
 
