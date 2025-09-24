@@ -23,7 +23,7 @@ The experiments in the case study are conducted with the ground-truth data avail
 
 ## Workflow execution simulator
 
-The simulator is invoked by the calibration scripts in (see the `README` file in the `calibration/` directory). But
+The simulator is invoked by the calibration scripts in (see next section). But
 the simulator can also be invoked stand-alone. 
 The simulator takes as input a single JSON file. An example input file
 is in `simulator/data/sample_input.json`. An invocation of the simulator, once installed, using that input
