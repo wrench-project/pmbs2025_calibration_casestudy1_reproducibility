@@ -25,16 +25,16 @@ ENV CXX="g++" CC="gcc"
 WORKDIR /tmp
 
 # Install SimGrid
-RUN wget --no-check-certificate https://framagit.org/simgrid/simgrid/-/archive/v4.0/simgrid-v4.0.tar.gz && tar -xf simgrid-v4.0.tar.gz && cd simgrid-v4.0 && mkdir build && cd build && cmake .. && make -j1  && make install && cd ../.. && rm -rf simgrid-v4.0*
+RUN wget --no-check-certificate https://framagit.org/simgrid/simgrid/-/archive/v4.0/simgrid-v4.0.tar.gz && tar -xf simgrid-v4.0.tar.gz && cd simgrid-v4.0 && mkdir build && cd build && cmake .. && make -j1  && make install && ldconfig && cd ../.. && rm -rf simgrid-v4.0*
 
 # install SimGrid's FSMod
-RUN wget https://github.com/simgrid/file-system-module/archive/refs/tags/v0.3.tar.gz && tar -xf v0.3.tar.gz && cd file-system-module-0.3 && mkdir build && cd build && cmake .. && make  && sudo make install && cd ../.. && rm -rf v0.3.tar.gz file-system-module-v*
+RUN wget https://github.com/simgrid/file-system-module/archive/refs/tags/v0.3.tar.gz && tar -xf v0.3.tar.gz && cd file-system-module-0.3 && mkdir build && cd build && cmake .. && make  && make install && ldconfig && cd ../.. && rm -rf v0.3.tar.gz file-system-module-v*
 
 # Install json for modern c++
-RUN wget https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz && tar -xf v3.11.3.tar.gz && cd json-3.11.3 && mkdir build && cd build && cmake .. && make -j2 && make install && cd ../.. && rm -rf v3.11.3* json-3.11.3
+RUN wget https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz && tar -xf v3.11.3.tar.gz && cd json-3.11.3 && mkdir build && cd build && cmake .. && make -j2 && make install && ldconfig && cd ../.. && rm -rf v3.11.3* json-3.11.3
 
 # Install WRENCH 2.6
-RUN wget https://github.com/wrench-project/wrench/archive/refs/tags/v2.6.tar.gz && tar -xzf v2.6.tar.gz && cd wrench-2.6 && mkdir build && cd build && cmake .. && make -j2 && make install && cd ../..
+RUN wget https://github.com/wrench-project/wrench/archive/refs/tags/v2.6.tar.gz && tar -xzf v2.6.tar.gz && cd wrench-2.6 && mkdir build && cd build && cmake .. && make -j2 && make install && ldconfig && cd ../..
 
 
 #################################################
@@ -51,7 +51,7 @@ WORKDIR /home/dockeruser
 ENV CXX="g++" CC="gcc"
 
 # Install Simulator
-RUN git clone  https://github.com/wrench-project/pmbs2025_calibration_casestudy1_reproducibility && cd pmbs2025_calibration_casestudy1_reproducibility/simulator && mkdir build && cd build && cmake .. && make  -j2 && sudo make install && cd ../..
+RUN git clone  https://github.com/wrench-project/pmbs2025_calibration_casestudy1_reproducibility && cd pmbs2025_calibration_casestudy1_reproducibility/simulator && mkdir build && cd build && cmake .. && make  -j2 && sudo make install && sudo ldconfig && cd ../..
 
 # Install Simcal
 RUN git clone https://github.com/wrench-project/simcal.git && cd simcal && git pull && sudo pip install -r requirements.txt --break-system-packages && sudo pip install . --break-system-packages &&  cd ..
