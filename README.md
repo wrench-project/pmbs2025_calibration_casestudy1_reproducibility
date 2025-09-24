@@ -9,13 +9,8 @@ The software is comprised of two parts:
   - The simulator in the `simulator/` directory; and
   - The simulator calibration scripts in the `calibration/` directory.
 
-The `install.sh` script in the root directory will build and install all needed software, including:
-[SimGrid 4.0](https://framagit.org/simgrid/simgrid/),
-[WRENCH 2.6](https://github.com/wrench-project/wrench), the simulator in `simulator/`, and
-the simulation calibration framework
-[Simcal](https://github.com/wrench-project/simcal) (commit tag `86445d59177922fa3711473bbf4e5e207005fcc2`).  It is assumed that
-`sudo`, `cmake`, `make`, `gcc`, `git`, Boost 1.81 or above, and Python 3.12 (and corresponding
-pip) are already installed.
+The root directory contains a `Dockerfile` for building a Docker image with all the necessary software installed. In particular, the Docker image will include: [SimGrid 4.0](https://framagit.org/simgrid/simgrid/), [WRENCH 2.6](https://github.com/wrench-project/wrench), the simulator in `simulator/`, and 
+[Simcal](https://github.com/wrench-project/simcal) (commit tag `86445d59177922fa3711473bbf4e5e207005fcc2` was used in the experiments).  
 
 The experiments in the case study are conducted with the ground-truth data available on [figshare](https://doi.org/10.6084/m9.figshare.30132955).
 
