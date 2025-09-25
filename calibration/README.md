@@ -20,8 +20,11 @@ This directory also includes scripts needed to run the calibration experiments f
 + `run_single_parameter_evaluation.py` : A command-line utility that takes a calibration as a json string and evaluates it on a set of ground-truth data
 + `run_single_workflow_experiments.py` : A command-line utility that runs multiple calibration on different experiment sets
 
+In all that follows, each script is detailed.
 
-# `calibration_from_pickle.py` 
+
+
+## `calibration_from_pickle.py` 
 A command line utility function that takes an output pickle created by one of the calibration scripts and extracts the calibration as a json file.
 ```bash
 ./calibration_from_pickle.py [-H] <pickle_file> [path_to_json] 
