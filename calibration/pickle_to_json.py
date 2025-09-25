@@ -53,10 +53,6 @@ parser = argparse.ArgumentParser(
 parser.add_argument('pickle_input', help="Path to the input pickle file.")
 parser.add_argument('json_output', nargs='?',help="Path to the output JSON file.",default="")
 
-# If no arguments are passed, print help
-#if len(parser.parse_args()) == 0:
-#	parser.print_help()
-
 args = parser.parse_args()
 
 # Load pickle file
