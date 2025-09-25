@@ -10,11 +10,11 @@ This directory includes the implementation of the simulator calibrator:
 
 This directory also includes scripts needed to run the calibration experiments for Case Study #1 in the paper:
 
-+ `calibration_from_pickle.py` : A command-line utility function that takes an output pickle created by one of the calibration scripts and extracts the calibration as a json file
++ `calibration_from_pickle.py` : A command-line utility that takes an output pickle created by one of the calibration scripts and extracts the calibration as a json file
 + `generate_synthetic_data.py` : A command-line utility to generate the synthetic data file from the ground-truth data file and a best-guess calibration
 + `Loss.py` : The Loss function definitions
 + `pickle_format.txt` : A description of the structure of an output pickle
-+ `pickle_to_json.py` : A command-line utility function that takes an output pickle created by one of the calibration scripts and converts it to a json object for easier exploration.  
++ `pickle_to_json.py` : A command-line utility that takes an output pickle created by one of the calibration scripts and converts it to a json object for easier exploration.  
 + `run_single_calibration.py` : A command-line utility to calibrate the simulator using a single set of experiments.  Generates an output pickle file of the experiments and calibration.
 + `run_single_evaluation.py` :  A command-line utility that takes an output pickle and evaluates it on a new set of ground-truth data
 + `run_single_parameter_evaluation.py` : A command-line utility that takes a calibration as a json string and evaluates it on a set of ground-truth data
@@ -25,18 +25,18 @@ In all that follows, each script is detailed.
 
 
 ## `calibration_from_pickle.py` 
-A command line utility function that takes an output pickle created by one of the calibration scripts and extracts the calibration as a json file.
+A command-line utility that takes an output pickle created by one of the calibration scripts and extracts the calibration as a json file.
+
 ```bash
 ./calibration_from_pickle.py [-H] <pickle_file> [path_to_json] 
 ```
 	
-	`pickle_file` is the path to the output pickle file to extract calibration from 
-	
-	`path_to_json` is the path to save the resulting json object to.  If empty (default), the json object is instead output on std_out
-	
-	`-H` converts all numeric types in the calibration to human readable number with suffix (e.g. 10000000000Bps to 10GBps)
-# `generate_synthetic_data.py`
-A command line utility to generate the synthetic data file from the ground-truth data file and a best-guess calibration 
+  - `pickle_file` is the path to the output pickle file to extract calibration from 
+  - `path_to_json` is the path to save the resulting json object to.  If empty (default), the json object is instead output on std_out
+  - `-H` converts all numeric types in the calibration to human readable number with suffix (e.g. 10000000000Bps to 10GBps)
+
+## `generate_synthetic_data.py`
+A command-line utility to generate the synthetic data file from the ground-truth data file and a best-guess calibration 
 
 ```bash
 ./generate_synthetic_data.py 
@@ -70,7 +70,7 @@ for file in $(ls ../../GROUND_TRUTH/*) ; do
 done
 ```
 # `pickle_to_json.py` 
-A command line utility function that takes an output pickle created by one of the calibration scripts and converts it to a json object for easier exploration.  
+A command-line utility that takes an output pickle created by one of the calibration scripts and converts it to a json object for easier exploration.  
 ```bash
 ./pickle_to_json.py <pickle_file> [path_to_json] 
 ```
@@ -80,7 +80,7 @@ A command line utility function that takes an output pickle created by one of th
 	`path_to_json` The path to save the resulting json object to.  If empty (default), the json object is instead output on std_out
 	
 # `run_single_calibration.py`
-A command line utility to calibrate the simulator using a single set of experiments.  Generates an output pickle file of the experiments and calibration.
+A command-line utility to calibrate the simulator using a single set of experiments.  Generates an output pickle file of the experiments and calibration.
 ```bash 
 ./run_single_calibration.py 
 	-wd <workflow_dir> 
@@ -142,7 +142,7 @@ The script will create an output file named`pickled-one_calibration-{hash(traini
 Output file name: `pickled-one_calibration-gV3DnU0I-gV3DnU0I-htcondor_bare_metal-submit_and_compute_hosts-one_and_then_many_links-skopt.gbrt-max_runtimes-average_error-86400-48-KOA.pickled`
 
 # `run_single_evaluation.py`
-A command line utility that takes a set of simulation parameters and evaluates it on a set of ground-truth data
+A command-line utility that takes a set of simulation parameters and evaluates it on a set of ground-truth data
 ```bash 
 ./run_single_parameter_evaluation.py 
 	-p <input_pickle> 
@@ -167,7 +167,7 @@ The script will create an output file named`[input_pickle]-Reevaluation-{hash(tr
 
 
 # `run_single_parameter_evaluation.py`
-A command line utility that takes a set of simulation parameters and evaluates it on a set of ground-truth data
+A command-line utility that takes a set of simulation parameters and evaluates it on a set of ground-truth data
 ```bash 
 ./run_single_parameter_evaluation.py 
 	-a <simulation_parameters> 
@@ -200,7 +200,7 @@ The script will create an output file named`Evaluation-{hash(training_set,8 byte
 	`evaluation_set` The list of json files to use for evaluation. 
 
 # `run_single_workflow_experiments.py`
-A command line utility that runs multiple calibration on different experiment sets
+A command-line utility that runs multiple calibration on different experiment sets
 ```bash 
 ./run_single_calibration.py 
 	-wd <workflow_dir> 
@@ -245,20 +245,20 @@ The script will create an output file named`pickled-one_workflow_experiments-wor
 	`network_topology_scheme` The network topology arg to pass to the simulator from the options `[one_link|one_and_then_many_links|many_links]`. 
 	
 ## Ground-Truth Naming Scheme
-The script expects a flattened dir with each file named in this format: ` [workflow_name]-[#tasks]-[CPU_work]-[legacy_placeholder]-[amount_of_data]-[architecture]-[#nodes]-[trial_incrimenter]-[timestamp].json`
+The script expects a flattened directory with each file named in this format: ` [workflow_name]-[#tasks]-[CPU_work]-[legacy_placeholder]-[amount_of_data]-[architecture]-[#nodes]-[trial_incrimenter]-[timestamp].json`
 Example: `epigenomics-129-1000-1.0-1500000000-icelake-2-4-1726336286.json	
 
 `workflow_name` the name of the workflow 
 
 `#tasks` the number of tasks in the workflow
 
-`CPU_work` the amount of cpu work done by each task
+`CPU_work` the amount of CPU work done by each task
 
 `legacy_placeholder` a legacy placeholder value.  generally set to `1.0` .
 
 `amount_of_data` the amount of data created by each task
 
-`architecture` the chameleon cloud cpu architecture of the nodes this ground-truth data was collected on
+`architecture` the chameleon cloud CPU architecture of the nodes this ground-truth data was collected on
 
 `#nodes` the number of nodes used to run the workflow
 
