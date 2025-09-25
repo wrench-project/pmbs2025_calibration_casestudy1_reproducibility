@@ -220,7 +220,7 @@ If the file already exists, the calibration is skipped
 ## Ground-Truth Naming Scheme
 
 The script expects a flattened directory with each file named in this format: ` [workflow_name]-[#tasks]-[CPU_work]-[legacy_placeholder]-[amount_of_data]-[architecture]-[#nodes]-[trial_incrimenter]-[timestamp].json`
-Example: `epigenomics-129-1000-1.0-1500000000-icelake-2-4-1726336286.json	
+Example: `epigenomics-129-1000-1.0-1500000000-icelake-2-4-1726336286.json`
 
   - `workflow_name` the name of the workflow 
   - `#tasks` the number of tasks in the workflow
