@@ -1,21 +1,21 @@
-# Calibration
+# Calibration Scripts
 
 ## Overview
 
-The calibration scripts include all the scripts need to run the calibration experiments found in the paper.
+This directory inclures all the scripts needed to run the calibration experiments found in Case Study #1 in the paper.
 
-+ `calibration_from_pickle.py` : A command line utility function that takes an output pickle created by one of the calibration scripts and extracts the calibration as a json file
-+ `generate_synthetic_data.py` : A command line utility to generate the synthetic data file from the ground-truth data file and a best-guess calibration
++ `calibration_from_pickle.py` : A command-line utility function that takes an output pickle created by one of the calibration scripts and extracts the calibration as a json file
++ `generate_synthetic_data.py` : A command-line utility to generate the synthetic data file from the ground-truth data file and a best-guess calibration
 + `Loss.py` : The Loss function definitions
 + `pickle_format.txt` : A description of the structure of an output pickle
-+ `pickle_to_json.py` : A command line utility function that takes an output pickle created by one of the calibration scripts and converts it to a json object for easier exploration.  
-+ `run_single_calibration.py` : A command line utility to calibrate the simulator using a single set of experiments.  Generates an output pickle file of the experiments and calibration.
-+ `run_single_evaluation.py` :  A command line utility that takes an output pickle and evaluates it on a new set of ground-truth data
-+ `run_single_parameter_evaluation.py` : A command line utility that takes a calibration as a json string and evaluates it on a set of ground-truth data
-+ `run_single_workflow_experiments.py` : A command line utility that runs multiple calibration on different experiment sets
-+ `Simulator.py` : The code to run the simulator in any configuration
-+ `Util.py` : various utilities, as well as Experiment and ExperimentSet for batches of Experiments and WorkflowSetSpec for managing ground-truth data subsets
-+ `WorkflowSimulatorCalibrator.py` : The code to handle arguments to make various calibration configurations
++ `pickle_to_json.py` : A command-line utility function that takes an output pickle created by one of the calibration scripts and converts it to a json object for easier exploration.  
++ `run_single_calibration.py` : A command-line utility to calibrate the simulator using a single set of experiments.  Generates an output pickle file of the experiments and calibration.
++ `run_single_evaluation.py` :  A command-line utility that takes an output pickle and evaluates it on a new set of ground-truth data
++ `run_single_parameter_evaluation.py` : A command-line utility that takes a calibration as a json string and evaluates it on a set of ground-truth data
++ `run_single_workflow_experiments.py` : A command-line utility that runs multiple calibration on different experiment sets
++ `Simulator.py` : The code to run the simulator on any configuration
++ `Util.py` : various utilities and abstractions (such as `Experiment` and `ExperimentSet` to define batches of experiments and `WorkflowSetSpec` for describing specific subsets of the ground-truth data)
++ `WorkflowSimulatorCalibrator.py` : The code of the simulator calibrator. 
 
 
 # `calibration_from_pickle.py` 
