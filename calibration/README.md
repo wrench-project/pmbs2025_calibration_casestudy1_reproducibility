@@ -108,11 +108,11 @@ The script will create an output file named`pickled-one_calibration-{hash(traini
 	
 	`loss_aggregator` which loss aggregator to use. Must be in the list `[average_error|max_error]`
 
-	`storage_service_scheme` The storage service arg to pass to the simulator from the options `[submit_only|submit_and_compute_hosts]`. The best guess parameters must contain the correct args for the scheme
+	`storage_service_scheme` The storage service arg to pass to the simulator from the options `[submit_only|submit_and_compute_hosts]`.
 	
-	`compute_service_scheme` The compute service arg to pass to the simulator from the options `[all_bare_metal|htcondor_bare_metal]`.  The best guess parameters must contain the correct args for the scheme
+	`compute_service_scheme` The compute service arg to pass to the simulator from the options `[all_bare_metal|htcondor_bare_metal]`.  
 	
-	`network_topology_scheme` The network topology arg to pass to the simulator from the options `[one_link|one_and_then_many_links|many_links]`.  The best guess parameters must contain the correct args for the scheme	
+	`network_topology_scheme` The network topology arg to pass to the simulator from the options `[one_link|one_and_then_many_links|many_links]`. 	
 	
 	`training_set` The list of json files to use for training
 	
@@ -185,11 +185,11 @@ The script will create an output file named`Evaluation-{hash(training_set,8 byte
 	
 	`loss_aggregator` the loss aggregator to use. Must be in the list `[average_error|max_error]`
 
-	`storage_service_scheme` The storage service arg to pass to the simulator from the options `[submit_only|submit_and_compute_hosts]`. The best guess parameters must contain the correct args for the scheme
+	`storage_service_scheme` The storage service arg to pass to the simulator from the options `[submit_only|submit_and_compute_hosts]`. 
 	
-	`compute_service_scheme` The compute service arg to pass to the simulator from the options `[all_bare_metal|htcondor_bare_metal]`.  The best guess parameters must contain the correct args for the scheme
+	`compute_service_scheme` The compute service arg to pass to the simulator from the options `[all_bare_metal|htcondor_bare_metal]`. 
 	
-	`network_topology_scheme` The network topology arg to pass to the simulator from the options `[one_link|one_and_then_many_links|many_links]`.  The best guess parameters must contain the correct args for the scheme	
+	`network_topology_scheme` The network topology arg to pass to the simulator from the options `[one_link|one_and_then_many_links|many_links]`.  
 	
 	`evaluation_set` The list of json files to use for evaluation. 
 
@@ -232,11 +232,11 @@ The script will create an output file named`pickled-one_workflow_experiments-wor
 	
 	`loss_aggregator` which loss aggregator to use. Must be in the list `[average_error|max_error]`
 
-	`storage_service_scheme` The storage service arg to pass to the simulator from the options `[submit_only|submit_and_compute_hosts]`. The best guess parameters must contain the correct args for the scheme
+	`storage_service_scheme` The storage service arg to pass to the simulator from the options `[submit_only|submit_and_compute_hosts]`. 
 	
-	`compute_service_scheme` The compute service arg to pass to the simulator from the options `[all_bare_metal|htcondor_bare_metal]`.  The best guess parameters must contain the correct args for the scheme
+	`compute_service_scheme` The compute service arg to pass to the simulator from the options `[all_bare_metal|htcondor_bare_metal]`.  
 	
-	`network_topology_scheme` The network topology arg to pass to the simulator from the options `[one_link|one_and_then_many_links|many_links]`.  The best guess parameters must contain the correct args for the scheme	
+	`network_topology_scheme` The network topology arg to pass to the simulator from the options `[one_link|one_and_then_many_links|many_links]`. 
 	
 ## Ground-Truth Naming Scheme
 The script expects a flattened dir with each file named in this format: ` [workflow_name]-[#tasks]-[CPU_work]-[legacy_placeholder]-[amount_of_data]-[architecture]-[#nodes]-[trial_incrimenter]-[timestamp].json`
