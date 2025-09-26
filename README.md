@@ -6,8 +6,8 @@ This repository contains the software used for Case Study #1 in [https://doi.org
 
 The software is comprised of two parts:
 
-  - The simulator in the `simulator/` directory; and
-  - The simulator calibration scripts in the `calibration/` directory.
+  - **The simulator**: A workflow execution simulator implemented with WRENCH, located in the `simulator/` directory.
+  - **Calibration scripts**: The simulator calibration scripts in the `calibration/` directory.
 
 The root directory contains a `Dockerfile` for building a Docker image with all the necessary software installed. In particular, the Docker image will include: [SimGrid 4.0](https://framagit.org/simgrid/simgrid/), [WRENCH 2.6](https://github.com/wrench-project/wrench), the simulator in `simulator/`, and 
 [Simcal](https://github.com/wrench-project/simcal) (commit tag `86445d59177922fa3711473bbf4e5e207005fcc2` was used in the experiments).  
