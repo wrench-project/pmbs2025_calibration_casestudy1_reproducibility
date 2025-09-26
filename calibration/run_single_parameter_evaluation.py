@@ -28,26 +28,8 @@ def parse_command_line_arguments(program_name: str):
 	try:
 		parser.add_argument('-a ', '--simulator_args', type=str, metavar="<json args>", 
 						help='Json string of arguments to give to siumulator')
-		#parser.add_argument('-p', '--pickle', type=str, metavar="<pickle>", required=True,
-		#					help='Pickled calibration to use')
-		#parser.add_argument('-cn', '--computer_name', type=str, metavar="<computer name>", required=True,
-		#					help='Name of this computer to add to the pickled file name')
-		#parser.add_argument('-wn', '--workflow_name', type=str, metavar="<workflow name>", required=True,
-		#					help='Name of the workflow to run the calibration/validation on')
-		#parser.add_argument('-ar', '--architecture', type=str,
-		#					metavar="[haswell|skylake|cascadelake|icelake]",
-		#					choices=['haswell', 'skylake', 'cascadelake','icelake'], required=True,
-		#					help='The computer architecture')
-		#parser.add_argument('-al', '--algorithm', type=str,
-		#					metavar="[grid|random|gradient|skopt.gp|skopt.gbrt|skopt.rf|skopt.et]",
-		#					choices=['grid', 'random', 'gradient','skopt.gp','skopt.gbrt','skopt.rf','skopt.et'], required=True,
-		#					help='The calibration algorithm')
-		#parser.add_argument('-tl', '--time_limit', type=int, metavar="<number of second>", required=True,
-		#					help='A training time limit, in seconds')
 		parser.add_argument('-th', '--num_threads', type=int, metavar="<number of threads (default=1)>", nargs='?',
 							default=1, help='A number of threads to use for training')
-		#parser.add_argument('-n', '--estimate_run_time_only', action="store_true",
-		#					help='A number of threads to use for training')
 		parser.add_argument('-lf', '--loss_function', type=str,
 							metavar="makespan, average_runtimes, max_runtimes",
 							choices=['makespan', 'average_runtimes','max_runtimes'], nargs='?',
@@ -80,12 +62,6 @@ def parse_command_line_arguments(program_name: str):
 
 
 def main(args):
-	
-	#print(base64.urlsafe_b64encode(hashlib.md5(str(set(args['training_set'])).encode()).digest()))
-	# Pickle results filename
-
-	#training=group(args['training_set'])
-	#print(training)
 	sim_args=args['simulator_args']
 	evaluation=group(args['evaluation_set'])
 	pickle_file_name = f"{Evaluation-" \
@@ -99,10 +75,6 @@ def main(args):
 		sys.stderr.write(f"There is already a pickled file '{pickle_file_name}'... Not doing anything!\n")
 		sys.exit(1)
 
-	#sys.stderr.write(f"repacking expiriments for {pickle_file_name}\n")
-
-	#with open(args['pickle'], 'rb') as f:
-	#	experiment_set = pickle.load(f)
 	simulator = Simulator(args["compute_service_scheme"],
 						  args["storage_service_scheme"],
 						  args["network_topology_scheme"])
@@ -126,19 +98,12 @@ def main(args):
 	
 		
 	sys.stderr.write(f"\nCreated {len(experiment_set)} experiments...\n")
-	#print(experiment_set.experiments[0].training_set_spec.workflows)
-	#time_estimate_str = timedelta(seconds=experiment_set.estimate_run_time())
-	#sys.stderr.write(f"Running experiments (should take about {time_estimate_str})\n")
 	start = time.perf_counter()
 	pickle_path=sys.argv[1]
 	experiment_set.compute_all_evaluations()
 	elapsed = int(time.perf_counter() - start)
 	sys.stderr.write(f"Actually ran in {timedelta(seconds=elapsed)}\n")
-	# except Exception as error:
-	#	sys.stderr.write(str(type(error)))
-	#	sys.stderr.write(f"Error while running experiments: {error}\n")
-	#	sys.exit(1)
-	# dont catch print exit errors.  Just let the error throw its self and python will give a much better print then still exit
+
 	print(experiment_set.experiments[0].evaluation_losses)
 	# Pickle it
 	with open(pickle_file_name, 'wb') as f:

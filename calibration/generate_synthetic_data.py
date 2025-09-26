@@ -44,11 +44,6 @@ def main():
 	# Parse command-line arguments
 	args= parse_command_line_arguments()
 
-	#print(base64.urlsafe_b64encode(hashlib.md5(str(set(args['training_set'])).encode()).digest()))
-
-	#print(training)
-	
-	
 	sim_args=json.loads(args["simulator_args"])
 	cmdargs = ["--wrench-commport-pool-size=10000",f"{args["simulator_args"]}"]
 	std_out, std_err, exit_code = sc.bash("workflow-simulator-for-calibration", cmdargs, std_in=None)
